@@ -1,0 +1,10 @@
+#!/bin/bash -l
+if
+	git merge-tree $(git merge-base origin/$1 HEAD) origin/$1 HEAD | grep -F -q "<<<<<<<"
+then
+	echo "Found conflict marker"
+	exit 1
+fi
+
+echo "No conflicts found"
+exit 0

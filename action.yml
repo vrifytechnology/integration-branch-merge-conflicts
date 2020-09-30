@@ -1,0 +1,12 @@
+name: 'siscodeorg/integration-branch-merge-conflicts'
+description: 'This action checks if the current branch would produce merge conflicts when merged to a given integration branch.'
+inputs:
+  branch:
+    description: 'The name of the integration branch.'
+    required: true
+    default: 'main'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.branch }}
